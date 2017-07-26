@@ -4,8 +4,6 @@
 <link rel="import" href="../deko-card/deko-card.html">
 
 <link rel="import" href="../content-card/content-card.html">
-<link rel="import" href="../content-card/content-view.html">
-<link rel="import" href="../content-card/content-edit.html">
 
 <link rel="import" href="../polymer/polymer.html">
 <!--
@@ -96,12 +94,17 @@
 <script>
   Polymer({
     is: "card-river",
-      ready: function(){
+    ready: function(){
       var that = this
       firebase.database().ref('/Cards/').on('value',function(snapshot) {
         debugger
-        that.items = Object.keys(snapshot.val())
+        that.cards = snapshot.val()
+        that.items = Object.keys(snapshot.val()).map(that.getAsCard)
       })
+    },
+    getAsCard:function(key){
+      console.log(this.cards[key])
+      //...
     },
   })
 </script>
