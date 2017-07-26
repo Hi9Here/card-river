@@ -7,7 +7,6 @@
 <link rel="import" href="../content-card/content-view.html">
 <link rel="import" href="../content-card/content-edit.html">
 
-<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../polymer/polymer.html">
 <!--
   `<card-river></card-river>` card-river
@@ -85,9 +84,6 @@
              margin-left: 2px;
           }
         </style>
-        <iron-media-query query="(min-width: 700px)" query-matches="{{wide}}"></iron-media-query>
-        <!--Wide Layout for Desktop-->
-        <template is="dom-if" if="{{wide}}">
           <div id="card-view">
             <deko-card-container>
               <template is="dom-repeat" items="{{items}}" initial-Count="1" id="list0">
@@ -95,21 +91,6 @@
               </template>
             </deko-card-container>
           </div>
-        </template>
-        <!--Narrow Layout under 700px-->
-        <template is="dom-if" if="{{!wide}}">
-          <div style="height: 100%">
-            <template is="dom-repeat" items="{{items}}" filter="pickable"  id="list1">
-              <paper-toolbar class="toolbarMobile" on-tap="select" card="[[item]]" style$="background:[[deckColor]]; height: 35px;">
-                <iron-icon icon="[[item.icon]]" style="height:90%"></iron-icon>
-                <div class="title" >[[item.title]]</div>
-              </paper-toolbar>
-            </template>
-            <div id="narrow">
-              <deko-card deck="[[deck]]" style="height:100%;width:100%" toolbar-color="[[deckColor]]" card="[[selectedItem]]" icon="[[selectedItem.icon]]" on-tapped="cardTapped" on-edit="edit" on-open="open"></deko-card>
-            </div>
-          </div>
-        </template>
   </template>
 </dom-module>
 <script>
