@@ -12,85 +12,37 @@
 -->
 <dom-module id="card-river">
   <template>
-    <style>:host {display:inline-block;color:#666}</style>
-        <style>
-          #narrow {
-            @apply(--layout-horizontal);
-            @apply(--layout-center-justified);
-            height: 100%;
-          }
-          paper-button {
-            color: #fff;
-            padding: 5px;
-          }
-          #card-view {
-            @apply(--layout-horizontal);
-            @apply(--layout-center-justified);
-            @apply(--layout-wrap);
-          }
-          deko-card-container {
-            margin-top: 50px;
-          }
-          .pre.desktop {
-            left: 80px;
-          }
-          .nex.desktop {
-            right: 80px;
-          }
-          .desktop {
-            position: absolute;
-            top: 320px;
-          }
-          .nex.mobile {
-            position: absolute;
-            left: 200px;
-            bottom: -45px;
-          }
-          .pre.mobile {
-            position: absolute;
-            left: 200px;
-            bottom: -25px;
-          }
-          .mobile {
-            transform: rotate(90deg);   
-          }
-          paper-button {
-            min-width: 2em;
-            min-height: 8em;
-            background: none;
-            color: #ff5722;
-          }
-          h6 {
-            -webkit-transform:scale(3,15); /* Safari and Chrome */
-            -moz-transform:scale(3,15); /* Firefox */
-            -ms-transform:scale(3,15); /* IE 9 */
-            -o-transform:scale(3,15); /* Opera */
-            transform:scale(3,15); /* W3C */
-          }
-          paper-toolbar {
-            --paper-toolbar-height: 35px;
-            --paper-toolbar-sm-height: 35px;
-            --paper-toolbar-title: {
-              font-size: 18px;
-              font-weight: 300;
-            }
-          }
-          .toolbarMobile {
-             box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14),
-                         0 -1px 0px 0 rgba(0, 0, 0, 0.12),
-                         0 -3px 1px -2px rgba(0, 0, 0, 0.2);
-             margin-left: 2px;
-          }
-        </style>
-          <div id="card-view">
-            <deko-card-container>
-              <template is="dom-repeat" items="{{items}}" initial-Count="1" id="list0">
-                <template is="dom-if" if="[[item.title]]">
-                  <deko-card toolbar-color="[[item.deckColor]]" deck="river" card="[[item]]" icon="[[item.icon]]"></deko-card>
-                </template>
-              </template>
-            </deko-card-container>
-          </div>
+    <style>
+      paper-button {
+        color: #fff;
+        padding: 5px;
+      }
+      #card-view {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+        @apply(--layout-wrap);
+      }
+      deko-card-container {
+        margin-top: 50px;
+      }
+      paper-toolbar {
+        --paper-toolbar-height: 35px;
+        --paper-toolbar-sm-height: 35px;
+        --paper-toolbar-title: {
+          font-size: 18px;
+          font-weight: 300;
+        }
+      }
+    </style>
+    <div id="card-view">
+      <deko-card-container>
+        <template is="dom-repeat" items="{{items}}" initial-Count="1" id="list0">
+          <template is="dom-if" if="[[item.title]]">
+            <deko-card toolbar-color="[[item.deckColor]]" deck="river" card="[[item]]" icon="[[item.icon]]"></deko-card>
+          </template>
+        </template>
+      </deko-card-container>
+    </div>
   </template>
 </dom-module>
 <script>
