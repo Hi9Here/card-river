@@ -97,14 +97,15 @@
     ready: function(){
       var that = this
       firebase.database().ref('/Cards/').on('value',function(snapshot) {
-        that.cards = snapshot.val()
-        that.items = Object.keys(that.cards).map(that.getAsCard)
+        var cards = snapshot.val()
+        that.items = Object.keys(that.cards).map(function(key,index){
+          console.log(cards[key])
+          return {
+            title:key,
+            cardType:"content-card",
+          }
+        })
       })
-    },
-    getAsCard:function(key){
-      console.log(this.cards[key])
-      //...
-      return {title:key}
     },
   })
 </script>
