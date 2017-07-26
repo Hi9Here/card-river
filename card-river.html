@@ -86,7 +86,7 @@
             <deko-card-container>
               <template is="dom-repeat" items="{{items}}" initial-Count="1" id="list0">
                 <template is="dom-if" if="[[item.title]]">
-                  <deko-card toolbar-color="[[item.deckColor]]" card="[[item]]" icon="[[item.icon]]"></deko-card>
+                  <deko-card toolbar-color="[[item.deckColor]]" deck="river" card="[[item]]" icon="[[item.icon]]"></deko-card>
                 </template>
               </template>
             </deko-card-container>
@@ -103,11 +103,11 @@
         that.items = Object.keys(cards).map(function(key,index){
           console.log(cards[key])
           if (cards[key].title) {
-            var title = cards[key].title[Object.keys(cards[key].title)[0]].value
-            return {
-              title: title,
-              cardType:"content-card",
+            var output = {cardType:"content-card"}
+            for (var _key in cards[key]) {
+              output[_key] = cards[key][_key][Object.keys(cards[key][_key])[0]].value
             }
+            return output
           } else {
             return {}
           }
