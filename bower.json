@@ -10,10 +10,10 @@
   "dependencies": {
     "polymer": "Polymer/polymer#~1.9.3",
     "iron-media-query": "PolymerElements/iron-media-query#~1.0.8",
-    "deko-card": "*",
-    "deko-card-container": "*",
-    "iron-icon": "*",
-    "paper-toolbar": "*"
+    "deko-card": "Hi9Here/deko-card",
+    "deko-card-container": "Hi9Here/deko-card-container",
+    "iron-icon": "PolymerElements/iron-icon",
+    "paper-toolbar": "PolymerElements/paper-toolbar"
   },
   "devDependencies": {
     "iron-test-helpers": "*",
