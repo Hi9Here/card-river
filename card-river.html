@@ -96,5 +96,12 @@
 <script>
   Polymer({
     is: "card-river",
+      ready: function(){
+      var that = this
+      firebase.database().ref('/Cards/').on('value',function(snapshot) {
+        debugger
+        that.items = Object.keys(snapshot.val())
+      })
+    },
   })
 </script>
