@@ -100,7 +100,7 @@
       var that = this
       firebase.database().ref('/Cards/').on('value',function(snapshot) {
         var cards = snapshot.val()
-        that.items = Object.keys(cards).map(function(key,index){
+        that.items = Object.keys(cards).reverse().map(function(key,index){
           console.log(cards[key])
           if (cards[key].title) {
             var output = {cardType:"content-card"}
