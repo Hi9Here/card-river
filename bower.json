@@ -1,0 +1,22 @@
+{
+  "name": "card-river",
+  "version": "1.0.0",
+  "description": "\n    \n    \n    \n  ",
+  "main": "card-river.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.9.3",
+    "iron-media-query": "PolymerElements/iron-media-query#~1.0.8",
+    "deko-card": "*",
+    "deko-card-container": "*",
+    "iron-icon": "*",
+    "paper-toolbar": "*"
+  },
+  "devDependencies": {
+    "iron-test-helpers": "*",
+    "web-component-tester": "^5.0.0"
+  }
+}
