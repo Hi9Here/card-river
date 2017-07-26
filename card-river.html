@@ -85,7 +85,9 @@
           <div id="card-view">
             <deko-card-container>
               <template is="dom-repeat" items="{{items}}" initial-Count="1" id="list0">
-                <deko-card toolbar-color="[[item.deckColor]]" card="[[item]]" icon="[[item.icon]]"></deko-card>
+                <template is="dom-if" if="[[item.title]]">
+                  <deko-card toolbar-color="[[item.deckColor]]" card="[[item]]" icon="[[item.icon]]"></deko-card>
+                </template>
               </template>
             </deko-card-container>
           </div>
@@ -100,9 +102,14 @@
         var cards = snapshot.val()
         that.items = Object.keys(cards).map(function(key,index){
           console.log(cards[key])
-          return {
-            title:key,
-            cardType:"content-card",
+          if (cards[key].title) {
+            var title = cards[key].title[Object.keys(cards[key].title)[0]].value
+            return {
+              title: title,
+              cardType:"content-card",
+            }
+          } else {
+            return {}
           }
         })
       })
